@@ -1,6 +1,8 @@
 import React from 'react'
 import LoginLogo from '../../../../../App/images/icon-above-font.png';
 import LoginForm from './LoginForm'
+import { Link } from "react-router-dom";
+
 
 export default function LoginPage() {
     return(
@@ -9,7 +11,7 @@ export default function LoginPage() {
             <div className='login__container'>
                 <h1>Connexion</h1>
                 <LoginForm />
-                <a href="">S'inscrire</a>
+                <Link to="../SignupPage/">S'inscrire</Link>
             </div>
         </div>
     )

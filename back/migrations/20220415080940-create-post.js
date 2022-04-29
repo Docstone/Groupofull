@@ -16,12 +16,20 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false,
       },
+       title: {
+        type : DataTypes.STRING,
+        allowNull: false
+      },
+      type: {
+        type : DataTypes.STRING,
+        allowNull: false
+      },
+      mediaUrl: {
+        type : DataTypes.STRING,
+        allowNull: true
+      },
       userId: { 
         type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      userUuid: {
-        type: DataTypes.UUID, 
         allowNull: false,
       },
       createdAt: {

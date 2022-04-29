@@ -22,9 +22,21 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4
     },
+    title: {
+      type : DataTypes.STRING,
+      allowNull: false
+    },
     body: {
       type : DataTypes.STRING,
       allowNull: false
+    }, 
+    type: {
+      type : DataTypes.STRING,
+      allowNull: false
+    },
+    mediaUrl: {
+      type : DataTypes.STRING,
+      allowNull: true 
     }
   }, {
     sequelize,

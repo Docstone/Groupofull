@@ -1,15 +1,22 @@
 const { Post, User } = require('../models');
 
 exports.createPost = async (req, res) => {
-  const uuid = req.body.userUuid
-  const body = req.body.body
+  const { body, userUuid, title, type } = req.body
   try {
-  if (req.body.userUuid && req.body.body) {
-  
-    const user = await User.findOne({ where: { uuid } })
-    const post = await Post.create({ body, userId: user.id })
+    if (req.file && req.body.userUuid && req.body.body){
+      console.log(req.file.destination)
+      const mediaUrl =  `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+      const user = await User.findOne({ where: { uuid: userUuid } })
+      const post = await Post.create({ title, body, type, userId: user.id , mediaUrl})
 
-    res.status(200).send({post});
+      res.status(200).json({post});
+      return;
+    }
+   else if (!req.file && req.body.userUuid && req.body.body) {
+    const user = await User.findOne({ where: { uuid: userUuid } })
+    const post = await Post.create({ title, body, type, userId: user.id })
+
+    res.status(200).json({post});
     return;
   }
   } catch (err) {

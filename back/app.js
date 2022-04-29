@@ -3,6 +3,7 @@ const { sequelize } = require('./models')
 const rateLimit = require("express-rate-limit");
 const helmet = require('helmet');
 const xss = require('xss-clean');
+const path = require('path');
 
 
 
@@ -34,6 +35,10 @@ const limiter = rateLimit({
 app.use(limiter);
 
 app.use(express.json());
+
+app.use('/images', express.static(path.join(__dirname, 'images')));
+
+app.use(helmet());
 
 app.use('/auth', userRoutes);
 app.use('/post', postRoutes)
