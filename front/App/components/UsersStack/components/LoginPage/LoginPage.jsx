@@ -11,7 +11,7 @@ export default function LoginPage() {
             <div className='login__container'>
                 <h1>Connexion</h1>
                 <LoginForm />
-                <Link to="../SignupPage/">S'inscrire</Link>
+                <Link to="SignupPage/">S'inscrire</Link>
             </div>
         </div>
     )

@@ -1,12 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import LoginPage  from '../App/components/UsersStack/components/LoginPage/LoginPage.jsx';
+import SignupPage  from '../App/components/UsersStack/components/SignupPage/SignupPage.jsx';
+import { BrowserRouter as Router,
+    Routes,
+    Route
+  } from "react-router-dom";
 
 function App() {
     return(
-        <div>
-            <LoginPage />
-        </div>
+        <Router>
+            <div>
+                <LoginPage />
+                <Routes>
+                    <Route path="SignupPage/" element={ <SignupPage /> } />
+                    <Route path="/" element={ <SignupPage /> } />
+                </Routes>
+            </div>
+        </Router>
+      
     )
 }
 
