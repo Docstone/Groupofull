@@ -8,10 +8,10 @@ var _App = _interopRequireDefault(require("./App.jsx"));
 
 require("./style.scss");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var container = document.getElementById('root');
+const container = document.getElementById('root');
 
-var root = _client["default"].createRoot(container);
+const root = _client.default.createRoot(container);
 
-root.render(_react["default"].createElement(_App["default"], null));
+root.render(_react.default.createElement(_App.default, null));

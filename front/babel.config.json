@@ -3,5 +3,8 @@
         "@babel/preset-env",
         "@babel/preset-react"
     ],
-    "comments": false
+    "comments": false,
+    "targets": {
+        "node": "10"
+      }
 }

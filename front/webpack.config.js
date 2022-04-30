@@ -4,6 +4,9 @@ module.exports = {
     mode: "development",
     entry: './src/index.jsx',
     watch: true,
+    devServer: {
+      historyApiFallback: true,
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
@@ -14,6 +17,11 @@ module.exports = {
       },
     module: {
         rules: [
+          {
+            test: /\.js$/,
+            enforce: 'pre',
+            use: ['source-map-loader'],
+          },
           {
             test: /\.s[ac]ss$/i,
             use: [

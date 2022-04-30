@@ -30,7 +30,7 @@ export default function signupPage() {
                     <input type='submit' className='signup__button'></input>    
                 </form>
 
-                <Link to="loginPage/">S'inscrire</Link>
+                <Link to="./LoginPage/">Se connecter</Link>
             </div>
         </div>
     )

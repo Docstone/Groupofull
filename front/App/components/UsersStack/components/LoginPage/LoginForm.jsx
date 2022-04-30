@@ -1,8 +1,8 @@
 import React from "react"
 
 export default function LoginForm() {
-    const[formData, setFormData] = React.useState({ email: "", password: "" })
-    console.log(formData)
+    const[formData, setFormData] = React.useState({ email: "", password: "", message:"", errEmail: "", errPassword: "" })
+
     function handleChange(event) {
         setFormData(prevFormData => {
             return {
@@ -11,11 +11,30 @@ export default function LoginForm() {
             }
         })
     }
-
+ function handleSubmit(event) {
+        event.preventDefault()
+        return fetch('http://localhost:3000/auth/login', {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({
+                    email: formData.email,
+                    password: formData.password
+                })
+            }).then((res) => {
+                if( res.ok ){
+                    setFormData({ message: "Utilisateur connecté"})
+                } else {
+                    setFormData({ message: "Identifiants Incorects"})
+                }
+            }).catch((err) => {
+                console.log(err)
+            })          
+    }
+ 
     return(
         <form 
-            action="http://localhost:3000/auth/login" 
-            method='post' 
+            onSubmit={handleSubmit}
+            action="http://localhost:3000/auth/login"
             className='login__form'
         >
 
@@ -24,20 +43,23 @@ export default function LoginForm() {
                 <input 
                     type="email" 
                     id='email'
-                    name='email' 
+                    name='email'
                     onChange={handleChange} 
                     className='login__input__email'
                     />
+                    {formData.errEmail && <p className="login_errorMsg">{formData.message}</p>}
             </div>
             <div className='login__input'>
                 <label htmlFor="password" className='login__label__password'>Mot de passe:</label>
                 <input 
                     type="password" 
                     id='password' 
-                    name='password' 
+                    name='password'
                     onChange={handleChange}
                     className='login__input__password'/>
+                {formData.errPassword && <p className="login_errorMsg">{formData.errPassword}</p>}
             </div>  
+            {formData.message && <p className="login_errorMsg">{formData.message}</p>}
             <input className='login__button' type="submit" value='Se connecter'/>        
         </form>
     )

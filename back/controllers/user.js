@@ -32,6 +32,7 @@ exports.login = ( req, res, next) => {
                 }
                 res.status(200).json({
                     userId: user.uuid,
+                    rank: user.rank,
                     token: jwt.sign(
                         { userId: user.uuid },
                         process.env.RANDOM_TOKEN_SECRET,
@@ -46,7 +47,7 @@ exports.login = ( req, res, next) => {
 };
 
 exports.getUsers =  (req, res, next) => {
-    User.findAll({ include: 'posts' })
+    User.findAll({ include: ['posts', 'comments' ]})
     .then( users => res.status(200).json(users))
     .catch( error => res.status(404).json({ error }));
 };
@@ -55,7 +56,7 @@ exports.getUser =  (req, res, next) => {
     const uuid = req.params.uuid
     User.findOne({ 
         where: { uuid },
-        include: 'posts'
+        include: ['posts', 'comments' ]
     })
     .then(user => res.status(200).json(user))
     .catch(error => res.status(404).json({ error }));

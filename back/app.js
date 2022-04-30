@@ -4,8 +4,7 @@ const rateLimit = require("express-rate-limit");
 const helmet = require('helmet');
 const xss = require('xss-clean');
 const path = require('path');
-
-
+const cors = require("cors");
 
 const userRoutes = require('./routes/user');
 const postRoutes = require('./routes/post');
@@ -35,7 +34,7 @@ const limiter = rateLimit({
 app.use(limiter);
 
 app.use(express.json());
-
+app.use(cors());
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use(helmet());

@@ -1,10 +1,9 @@
-const { Post, User } = require('../models');
+const { Post, User, Comment } = require('../models');
 
 exports.createPost = async (req, res) => {
   const { body, userUuid, title, type } = req.body
   try {
     if (req.file && req.body.userUuid && req.body.body){
-      console.log(req.file.destination)
       const mediaUrl =  `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
       const user = await User.findOne({ where: { uuid: userUuid } })
       const post = await Post.create({ title, body, type, userId: user.id , mediaUrl})
@@ -25,15 +24,32 @@ exports.createPost = async (req, res) => {
   }
 }
 
+exports.createComment = async (req, res, next) =>{
+  const { body, postUuid, userUuid} = req.body
+  try {
+    if ( req.body.body && req.body.postUuid && req.body.userUuid){
+      const post = await Post.findOne({ where: { uuid: postUuid } })
+      const user = await User.findOne({ where: { uuid: userUuid } })
+      const comment = await Comment.create({ body, postId: post.id, userId: user.id})
+      return res.status(200).json({comment});
+    } else { 
+      return res.status(400).json({err: "Bad Request"});
+    }
+  } catch (err) {
+    console.log(err)
+    return res.status(500).json(err)
+  }
+}
+
   exports.getPosts =  (req, res, next) => {
-    Post.findAll({ include:  'user'})
+    Post.findAll({ include: ['user', 'comments'] })
     .then( posts => res.status(200).json(posts))
     .catch( error => res.status(404).json({ error }));
 };
 
 exports.getPost =  (req, res, next) => {
     const uuid = req.params.uuid
-    Post.findOne({ where: { uuid },  include: 'user' })
+    Post.findOne({ where: { uuid },  include: ['user', 'comments'] })
     .then(post => {
       if(post && post !== null){
         res.status(200).json(post)
@@ -43,6 +59,7 @@ exports.getPost =  (req, res, next) => {
     })
     .catch(error => res.status(404).json({ error }));
 };
+
 
 exports.userPosts = (req, res, next) => {
   const uuid = req.params.uuid
@@ -54,20 +71,37 @@ exports.userPosts = (req, res, next) => {
   .catch(error => res.status(404).json({ error }));
 };
 
-exports.delete = async (req, res) => {
+exports.deletePost = async (req, res) => {
     const uuid = req.params.uuid
     const userId = req.get('auth')
     try {
-      const post = await Post.findOne({ where: { uuid } , include: 'user'})
+      const post = await Post.findOne({ where: { uuid }, include: 'user' })
       if (!post) {
         return res.status(404).json({error: "Post introuvable"})
       }
-     
       await post.destroy()
-  
       return res.json({ message: 'Post Supprimmé!' })
+
       }catch (err) {
         console.log(err)
         return res.status(500).json({ error: 'Une erreur est survenue' })
     }
+}
+
+exports.deleteComment = async (req, res) => {
+  const uuid = req.params.uuid
+  const userId = req.get('auth')
+  try {
+    const comment = await Comment.findOne({ where: { uuid } , include: 'user'})
+    if (!comment) {
+      return res.status(404).json({error: "Commentaire introuvable"})
+    }
+   
+    await comment.destroy()
+
+    return res.json({ message: 'Commentaire Supprimmé!' })
+    }catch (err) {
+      console.log(err)
+      return res.status(500).json({ error: 'Une erreur est survenue' })
+  }
 }
