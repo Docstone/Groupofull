@@ -2,7 +2,18 @@ body {
   font-family: 'Ubuntu';
 }
 
+.fill-window {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: #d43205;
+}
+
 .login {
+  background-color: #d43205;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -16,21 +27,17 @@ body {
 }
 
 .login__logo {
-  width: 80vh;
-  height: 15rem;
-  -o-object-fit: cover;
-     object-fit: cover;
+  height: 14rem;
 }
 
 .login h1 {
-  color: #fd2e04;
+  color: #d43205;
   font-weight: 400;
 }
 
 .login__container {
-  background-color: #ffdada;
-  width: 60vh;
-  padding: 1rem 0 2rem;
+  width: 50vh;
+  padding: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -44,11 +51,23 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-radius: 3%;
+  position: relative;
+  bottom: 2.5rem;
+  background-color: #ffdada;
+  border-radius: 2rem;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+          box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+}
+
+.login__label {
+  color: #d43205;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: .5rem;
 }
 
 .login__input {
-  width: 15rem;
+  width: 16rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -57,6 +76,11 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   padding-bottom: 1rem;
+  text-align: center;
+}
+
+.login__input--box {
+  border-radius: 2rem;
 }
 
 .login__form {
@@ -72,7 +96,219 @@ body {
           align-items: center;
 }
 
-.login__button {
-  margin-bottom: 1rem;
+.login__signupLink {
+  padding-top: 1rem;
+  font-weight: 400;
+  color: #d43205;
+}
+
+.login__msg {
+  color: #d43205;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+input {
+  text-align: center;
+}
+
+body {
+  font-family: 'Ubuntu';
+}
+
+.fill-window {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: scroll;
+  background-color: #d43205;
+}
+
+.signup {
+  background-color: #d43205;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.signup__logo {
+  width: 70vh;
+  height: 14rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.signup h1 {
+  color: #d43205;
+  font-weight: 400;
+}
+
+.signup__container {
+  width: 50vh;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  bottom: 2.5rem;
+  background-color: #ffdada;
+  border-radius: 2rem;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+          box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+}
+
+.signup__label {
+  color: #d43205;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: .5rem;
+}
+
+.signup__input {
+  width: 16rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.signup__input--box {
+  border-radius: 2rem;
+}
+
+.signup__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.signup__loginLink {
+  padding-top: 1rem;
+  font-weight: 400;
+  color: #d43205;
+}
+
+.signup__msg {
+  color: #d43205;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+input {
+  text-align: center;
+}
+
+HomeBoard {
+  width: 100%;
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #324160;
+  position: absolute;
+  height: 100vh;
+  min-width: 13rem;
+  max-width: 25%;
+  top: 0;
+  left: 0;
+}
+
+.nav__logo {
+  width: 85%;
+  margin-top: 10px;
+  padding-bottom: 4rem;
+}
+
+.nav__boardLink {
+  margin-bottom: 4rem;
+}
+
+.button {
+  width: 8rem;
+  height: 2rem;
+  margin-top: .6rem;
+  border-radius: 2rem;
+  border-color: #fffffe;
+  color: #fffffe;
+  background-color: #162d4f;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.button:hover {
+  background-color: #214477;
+}
+
+.button__login {
+  border-color: #fffffe;
+  color: #fffffe;
+  background-color: #d43205;
+}
+
+.button__nav {
+  background: -webkit-gradient(linear, left top, right top, from(#162d4f), to(#6c727e));
+  background: linear-gradient(to right, #162d4f, #6c727e);
+  color: #fffffe;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  width: 100%;
+  height: 2.5rem;
+  border-radius: 0;
+  margin-bottom: .3rem;
+}
+
+.button__nav:hover {
+  background: -webkit-gradient(linear, right top, left top, from(#fffffe), to(#ffdada));
+  background: linear-gradient(to left, #fffffe, #ffdada);
+  color: #162d4f;
+}
+
+.button__nav--active {
+  background: -webkit-gradient(linear, right top, left top, from(#fffffe), to(#ffdada));
+  background: linear-gradient(to left, #fffffe, #ffdada);
+  color: #162d4f;
+}
+
+.button:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,22 @@
+.nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $color-primary-fade;
+    position: absolute;
+    height: 100vh;
+    min-width: 13rem;
+    max-width: 25%;
+    top: 0;
+    left: 0;
+
+    &__logo{
+        width: 85%;
+        margin-top: 10px;
+        padding-bottom: 4rem;
+    }
+
+    &__boardLink{
+        margin-bottom: 4rem;
+    }
+}

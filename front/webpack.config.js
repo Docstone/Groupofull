@@ -8,6 +8,7 @@ module.exports = {
       historyApiFallback: true,
     },
     output: {
+        publicPath: '/dist/',
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
     },

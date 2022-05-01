@@ -1,3 +1,7 @@
-@import '../App/utils/_variables.scss';
-@import '../App/components/UsersStack/components/LoginPage/_LoginPage.scss';
-@import '../App/components/UsersStack/components/SignupPage/_SignupPage.scss';
+@import './App/utils/_variables.scss';
+@import './App/components/UsersStack/components/LoginPage/LoginPage';
+@import './App/components/UsersStack/components/SignupPage/SignupPage';
+@import './App/components/BoardStack/components/HomePage/HomePage';
+@import './App/components/BoardStack/components/HomeBoard/HomeBoard';
+@import './App/components/Base/components/Nav/Nav';
+@import './App/components/Base/components/Button/Button';
