@@ -1,11 +1,13 @@
 import React from "react"
 import axios from 'axios'
 import Button from "../../../Base/components/Button/Button"
+import { useNavigate } from "react-router-dom"
 
 export default function LoginForm() {
 
     const[formData, setFormData] = React.useState({ email: "", password: ""})
     const[loginMsg, setLoginMsg] = React.useState({ msg:"", errMsg: "", errPassword: "" })
+    const navigate = useNavigate()
 
     function handleChange(event) {
         setFormData(prevFormData => {
@@ -27,6 +29,7 @@ export default function LoginForm() {
                         localStorage.setItem('token', res.data.token)
                         localStorage.setItem('rank', res.data.rank)
                         setLoginMsg({ msg: "Utilisateur connecté"})
+                        navigate("/HomePage/HomeBoard")
                     } 
                 }).catch((err) => {
                     setLoginMsg({ errMsg: "Identifiants Incorects"})

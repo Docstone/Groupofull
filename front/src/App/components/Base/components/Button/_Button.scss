@@ -10,7 +10,7 @@
     font-weight: 500;
 
     &:hover{
-        background-color: lighten($color-primary, 10%);
+        background-color: lighten($color-pastel-blue, 10%);
     }
 
     &__login{
@@ -22,7 +22,7 @@
    
 
     &__nav{
-        background: linear-gradient(to right, $color-primary, darken($color-secondary, 10%)) ;
+        background: linear-gradient(to right, $color-pastel-blue, darken($color-pastel-lightblue, 10%)) ;
         color: $color_white;
         border: none;
         font-weight: 600;

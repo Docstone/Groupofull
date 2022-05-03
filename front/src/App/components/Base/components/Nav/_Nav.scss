@@ -2,13 +2,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: $color-primary-fade;
+    background-color: $color-pastel-blue;
     position: absolute;
     height: 100vh;
     min-width: 13rem;
     max-width: 25%;
     top: 0;
     left: 0;
+    box-shadow:rgb(255, 255, 255) 8px 0px 0px -3px, $color-primary-fade 8px 0px, rgb(255, 255, 255) 16px 0px 0px -3px, #475A74 16px 0px,rgb(255, 255, 255) 24px 0px 0px -3px, #B4BBC6 24px 0px;
 
     &__logo{
         width: 85%;

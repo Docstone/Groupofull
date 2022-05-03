@@ -1,9 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 import Button from '../../../Base/components/Button/Button';
+import { useNavigate } from 'react-router-dom';
 
 export default function Signupform() {
     const[formData, setFormData] = React.useState({ firstName:"", lastName:"", email: "", password: "", message:"", errEmail: "", errPassword: "" })
+    const[signupMsg, setSignupMsg] = React.useState({ msg:"", errMsg: "" })
+    const navigate = useNavigate()
 
     function handleChange(event) {
         setFormData(prevFormData => {
@@ -19,13 +22,11 @@ export default function Signupform() {
                     email: formData.email,
                     password: formData.password
                 }).then(res => {
-                    if (res.status === 500){
-                        setFormData({ message: "Identifiants Incorects"})
-                } else {
+                 if (res.status === 200) {
                     localStorage.setItem('userId', res.data.userId)
                     localStorage.setItem('token', res.data.token)
                     localStorage.setItem('rank', res.data.rank)
-                    setFormData({ message: "Utilisateur connecté"})
+                    navigate("/HomePage")
                 }
             }).catch((err) => {
                 console.log(err)
@@ -40,13 +41,13 @@ export default function Signupform() {
                     email: formData.email,
                     password: formData.password
                 }).then(res => {
-                    if(res.status === 200){
+                    if(res.status === 201){
                         console.log(res)
-                    setFormData({ message: "Nouvel utilisateur Créé"})
-                } else if (res.satus === 400){
-                    setFormData({ message: "Adresse Email déja utilisée"})
-                }
+                    setSignupMsg({ msg: "Nouvel utilisateur Créé"})
+                    autoLogin()
+                } 
             }).catch((err) => {
+                setSignupMsg({ errMsg: "Adresse Email déja utilisée"})
                 console.log(err)
             })          
     }
@@ -99,7 +100,8 @@ export default function Signupform() {
                     className='signup__input--box'
                     />
             </div>
-            {formData.message && <p>{formData.message}</p>} 
+            {signupMsg.msg && <p className='signup__msg'>{signupMsg.msg}</p>} 
+            {signupMsg.errMsg && <p className='signup__msg'>{signupMsg.errMsg}</p>} 
             <Button cname="button button__login" type="submit">S'inscrire</Button>
         </form>
     );

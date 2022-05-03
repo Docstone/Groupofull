@@ -8,17 +8,19 @@ const Nav = () => {
         <nav className='nav'>
             <img src={NavLogo} className="nav__logo" alt="Logo Groupomania" />
             <div className='nav__boardLink'>  
-                <Link to ="/HomeBoard">
+                <Link to ="/HomePage/HomeBoard">
                     <Button cname="button button__nav">Accueil</Button>
                 </Link>
-                <Link to="/TextBoard">
+                <Link to="/HomePage/TextBoard">
                     <Button cname="button button__nav">Publication Texte</Button>
                 </Link>
-                <Link to="/MediaBoard">
+                <Link to="/HomePage/MediaBoard">
                     <Button cname="button button__nav button__nav--active">Publication Multimédia</Button>
                 </Link>
             </div>
-            <Button cname='button button_post'>Creer un Post</Button>
+            <Link to="/HomePage/PostBoard">
+                <Button cname='button button_post'>Creer un Post</Button>
+            </Link>
         </nav>
     );
 }
