@@ -1,18 +1,42 @@
+import React, { useState, useEffect} from 'react';
+import Comment from "../Comment/Comment"
 import axios from 'axios';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { DateFormat , TimeFormat} from '../../../../helpers/DateFormat';
-import { CapitalizeFirst } from '../../../../helpers/CapitalizeFirst';
+import CommentPost from '../CommentPost/CommentPost';
 
-const Commentboard = ( comments ) => {
 
-    console.log(comments)
+const CommentBoard = ( props ) => {
+    const [ comments, setComments ] = useState([])
+
+    const getComments =  () => {
+        const postUuid = props.postUuid
+        const auth = localStorage.getItem('token')
+        axios.get(`http://localhost:3300/post/${postUuid}`, {
+            headers: {
+                "Authorization": `Bearer ${auth}`
+            }
+        }).then(res => {
+            setComments(res.data.comments)
+        })
+    }
+
+    useEffect(() => {
+        getComments()
+      }, [])
+
+   
     return (
         <div>
-            
+            <CommentPost  postUuid={props.postUuid} setComments={getComments} />
+            {comments.length > 0 && (
+            <ul className='commentList'>
+                    {comments.map(comment => (
+                    <Comment key={comment.uuid}  comment={comment} />
+                    ))}
+            </ul>
+            )}
         </div>
+
     );
 }
 
-export default Commentboard;
+export default CommentBoard;

@@ -49,7 +49,7 @@ exports.createComment = async (req, res, next) =>{
 
 exports.getPost =  (req, res, next) => {
     const uuid = req.params.uuid
-    Post.findOne({ where: { uuid },  include: ['user', 'comments'] })
+    Post.findOne({ where: { uuid },  include:  { all: true, nested: true  } })
     .then(post => {
       if(post && post !== null){
         res.status(200).json(post)

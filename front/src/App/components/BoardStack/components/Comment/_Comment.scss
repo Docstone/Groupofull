@@ -1,0 +1,44 @@
+.comment{
+    background-color:  $color-pastel-lightmauve;
+    padding: .5rem;
+    margin-bottom: .5rem;
+    border-radius: .3rem;
+
+    &List{
+        padding: 0;
+    }
+
+    &__form{
+        &Container{
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    &__textArea{
+        height: 2rem;
+        width: 80rem;
+        text-align: center;
+        
+        resize: none;
+
+      
+    }
+
+    &__info{
+        &__container{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: .2rem;
+    
+        }
+        &__text{
+            margin: 0;
+            font-size: $fs-info;
+        }
+    }
+    &__body{
+        margin: 0;
+          word-wrap: break-word;
+    }
+}

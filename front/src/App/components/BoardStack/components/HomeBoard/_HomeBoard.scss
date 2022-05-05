@@ -1,19 +1,18 @@
-.homeBoard{
+.board{
     position: absolute;
-    right: 0vh;
-    top:  0vh;
+    right: 0;
+    top:  0;
     height: 100vh;
-    width: 70vw;
-    max-width: 70%;
-    border-radius: .8rem 0;
+    width: 75%;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    
     &__postList{
         padding: 0;
-        width: 80%;
+        margin: 0;
+        width: 70%;
     }
 
     &__type{
@@ -22,16 +21,17 @@
         font-size: .8rem;
         font-weight: 800;
 
-        &Container{
-        background-color: $color-pastel-mauve;
+        &__container{
+        background-color:rgb(218, 232, 246);
         position: relative;
         width: fit-content;
-        border-radius:  .2rem .2rem 0 0;     
+        border-radius:  .2rem .2rem 0 0;    
+        margin-top: 2rem;
         }
     }
 
     &__post{
-        background-color: $color-pastel-mauve;
+        background-color: rgb(218, 232, 246);
         padding: .5rem .7rem ;
         border-radius: 0 .2rem .2rem .2rem;
         box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
@@ -49,15 +49,26 @@
 
     }
 
-    &__title{
+    &__boardTitle{
         color: $color-primary;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         text-align: center;
         margin-bottom: 0;
 
     }
+    &__postTitle{
+        font-size: $fs-title;
+        word-wrap: break-word;
+        margin-top: .8rem;
+    }
+    &__postBody{
+        font-size: $fs-body;
+        font-weight: 500;
+        padding-left: .5rem;
+        margin-bottom: .5rem;
+        word-wrap: break-word;
 
-  
+    }
     &__postImg{
         height: 100%;
         width: 100%;
@@ -65,5 +76,17 @@
         object-fit: cover;
         margin-left: auto ;
 
+    }
+
+    &__commentsLink{
+        margin: 0 auto;
+        padding-bottom: 0;
+        text-align: center;
+        width: fit-content;
+
+        cursor: pointer;
+    }
+    &__endPosts{
+        font-weight: 500;
     }
 }

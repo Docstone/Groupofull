@@ -62,7 +62,7 @@ export default function LoginForm() {
                     id='password' 
                     name='password'
                     onChange={handleChange}
-                    placeholder="********"
+                
                     className='login__input--box'/>
                 {/* {formData.errPassword && <p className="login_errorMsg">{formData.errPassword}</p>} */}
             </div>  

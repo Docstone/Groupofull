@@ -18,6 +18,8 @@
         color: $color-white; 
         background-color: $color-red;
     }
+
+    
     
    
 
@@ -32,17 +34,26 @@
         border-radius: 0;
         margin-bottom: .3rem;
 
-        &:hover{
-            background: linear-gradient(to left, $color-white, $color-pink) ;
-            color: $color-primary; 
+        &__logout{
+            border-radius: .4rem;
+            position: relative;
+            border-color: $color-white;
+            color: $color-white; 
+            height: 1.5rem;
+            top: 8rem;
+            background-color: $color-white;
         }
 
         &--active{
             background: linear-gradient(to left, $color-white, $color-pink) ;
             color: $color-primary; 
         }
-    }
 
+        &:hover{
+            background: linear-gradient(to left, $color-white, $color-pink) ;
+            color: $color-primary; 
+        }
+    }
     &:hover{
         cursor: pointer;
     }

@@ -415,6 +415,13 @@ textarea {
   margin: 0; /* 2 */
 }
 
+input:focus::placeholder {
+  color: transparent;
+}
+
+textarea:focus::placeholder {
+  color: transparent;
+}
 /**
  * Show the overflow in IE.
  */

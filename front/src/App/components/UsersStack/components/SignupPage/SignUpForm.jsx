@@ -26,7 +26,7 @@ export default function Signupform() {
                     localStorage.setItem('userId', res.data.userId)
                     localStorage.setItem('token', res.data.token)
                     localStorage.setItem('rank', res.data.rank)
-                    navigate("/HomePage")
+                    navigate("/HomePage/HomeBoard")
                 }
             }).catch((err) => {
                 console.log(err)

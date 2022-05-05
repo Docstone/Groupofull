@@ -1,3 +1,9 @@
-HomeBoard{
-    width: 100%;
+.backgroundImage{
+    position: relative;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: 125% bottom;
+    background-size: contain;
 }
