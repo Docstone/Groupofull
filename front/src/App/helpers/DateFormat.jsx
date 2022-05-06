@@ -8,8 +8,11 @@ export function DateFormat( props ) {
 }
 
 export function TimeFormat( props ) {
-    const time = props.split('T')[1].split('.')[0]
-    return time 
+    const time = []
+    time.push(props.split('T')[1].split(':')[0]) 
+    time.push(props.split('T')[1].split(':')[1]) 
+
+    return time.join(':')
 }
 
 

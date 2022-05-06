@@ -73,25 +73,25 @@ const PostBoard = () => {
                
                     <div className='postForm__inputContainer'>
                         <label className='postForm__inputLabel' htmlFor="title">Titre du post</label>
-                        <input className='postForm__input' onChange={handleChange} name="title" id="title"  placeholder='Votre titre...'></input>
+                        <input className='postForm__input' onChange={handleChange} name="title" id="title" required  placeholder='Votre titre...'></input>
                     </div>
                     <div className='postForm__inputContainer'>
                         <label className='postForm__inputLabel' htmlFor="body">Contenu du post</label>
-                        <textarea className='postForm__input' onChange={handleChange} name="body" id="body"  rows="3"  placeholder='Votre contenu...'></textarea>
+                        <textarea className='postForm__input' onChange={handleChange} name="body" id="body" required rows="3"  placeholder='Votre contenu...'></textarea>
                     </div>
 
             
                     <div className='postForm__radioContainer'>
                         <div>
                             <label className='postForm__radioLabel' htmlFor="type">Publication Texte</label>
-                            <input type="radio" value="text" name="type" id='type' onChange={handleChange} />
+                            <input type="radio" value="text" name="type" id='type' onChange={handleChange} required/>
                          </div>
                         <div>
                             <label className='postForm__radioLabel' htmlFor="type">Publication Multimédia</label>
                             <input type="radio" value="media" name="type" id='type' onChange={handleChange} />
                         </div>
                     </div>
-                    { postInput.type === 'media' && <input type="file" name="upload" id ="upload" onChange={handleUpload}></input> }
+                    { postInput.type === 'media' && <input type="file" name="upload" id ="upload" required onChange={handleUpload}></input> }
                     <Button cname="button__input" type="submit">Publier</Button>
                 </form>
         </div>

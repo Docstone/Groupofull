@@ -1,4 +1,6 @@
 const { Post, User, Comment } = require('../models');
+const fs = require('fs');
+
 
 exports.createPost = async (req, res) => {
   const { body, userUuid, title, type } = req.body
@@ -75,13 +77,31 @@ exports.deletePost = async (req, res) => {
     const uuid = req.params.uuid
     const userId = req.get('auth')
     try {
-      const post = await Post.findOne({ where: { uuid }, include: 'user' })
+      const post = await Post.findOne({ where: { uuid }, include: 'comments' })
+    
+     
       if (!post) {
-        return res.status(404).json({error: "Post introuvable"})
-      }
-      await post.destroy()
-      return res.json({ message: 'Post Supprimmé!' })
 
+        return res.status(404).json({error: "Post introuvable"})
+
+      } if ( post.type === 'text' ){
+
+        await post.destroy()
+        return res.json({ message: 'Post Supprimmé!' })
+
+      } if ( post.type === 'media' && post.mediaUrl){
+
+        const filename = post.mediaUrl.split('/images/')[1];
+        fs.unlink(`images/${filename}`, () => {
+          post.destroy()
+        return res.json({ message: 'Post Supprimmé!' })
+        })
+
+      } if ( post.type === 'media' && !post.mediaUrl){
+          post.destroy()
+        return res.json({ message: 'Post Supprimmé!' })
+      }
+      
       }catch (err) {
         console.log(err)
         return res.status(500).json({ error: 'Une erreur est survenue' })
@@ -96,7 +116,6 @@ exports.deleteComment = async (req, res) => {
     if (!comment) {
       return res.status(404).json({error: "Commentaire introuvable"})
     }
-   
     await comment.destroy()
 
     return res.json({ message: 'Commentaire Supprimmé!' })

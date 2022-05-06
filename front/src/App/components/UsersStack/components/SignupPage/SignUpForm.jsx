@@ -65,6 +65,9 @@ export default function Signupform() {
                     onChange={handleChange} 
                     placeholder="Jean"
                     className='signup__input--box'
+                    pattern= "(-?([A-Z].\s)?([a-zA-ZÀ-ÖØ-öø-ÿ][a-zÀ-ÖØ-öø-ÿ-]+)\s?)+([A-Z]'([A-Z][a-z]+))?"
+                    minLength="2"
+                    maxLength="25"  
                     />
             </div>
             <div className='signup__input'>
@@ -76,6 +79,9 @@ export default function Signupform() {
                     onChange={handleChange} 
                     placeholder="Dupont"
                     className='signup__input--box'
+                    pattern= "(-?([A-Z].\s)?([a-zA-ZÀ-ÖØ-öø-ÿ][a-zÀ-ÖØ-öø-ÿ-]+)\s?)+([A-Z]'([A-Z][a-z]+))?"
+                    minLength="2"
+                    maxLength="25" 
                     />
             </div>
             <div className='signup__input'>

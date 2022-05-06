@@ -11,18 +11,14 @@
     &__form{
         &Container{
             display: flex;
-            justify-content: center;
+            margin: 1rem 0;
         }
     }
 
     &__textArea{
-        height: 2rem;
+        height: 2.5rem;
         width: 80rem;
-        text-align: center;
-        
         resize: none;
-
-      
     }
 
     &__info{

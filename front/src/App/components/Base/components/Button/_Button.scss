@@ -19,9 +19,15 @@
         background-color: $color-red;
     }
 
-    
-    
-   
+    &__comment{
+        background-color:  $color-white;
+    }
+
+    &__delete{
+        font-size: .7rem;
+        float: inline-end;
+        margin-top: .5rem;
+    }
 
     &__nav{
         background: linear-gradient(to right, $color-pastel-blue, darken($color-pastel-lightblue, 10%)) ;
@@ -33,6 +39,7 @@
         height: 2.5rem;
         border-radius: 0;
         margin-bottom: .3rem;
+        
 
         &__logout{
             border-radius: .4rem;
@@ -43,6 +50,7 @@
             top: 8rem;
             background-color: $color-white;
         }
+
 
         &--active{
             background: linear-gradient(to left, $color-white, $color-pink) ;
@@ -57,4 +65,14 @@
     &:hover{
         cursor: pointer;
     }
+
+
+    &__postMobile{
+        margin-left: auto;
+    }
 }
+
+  
+@media only screen and (max-width: 700px) {
+
+  }

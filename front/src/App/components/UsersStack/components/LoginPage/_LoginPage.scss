@@ -21,6 +21,7 @@ body{
 
     &__logo{
         height:14rem;   
+    
     }
     h1{
         color: $color-red;
@@ -74,4 +75,13 @@ body{
 
 input{
     text-align: center;
+}
+
+@media only screen and (max-width: 700px) {
+    .login{
+        &__logo{
+           height: 8rem;
+           margin-bottom: 5rem;
+        }
+    }
 }
