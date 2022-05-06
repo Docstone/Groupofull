@@ -5,15 +5,10 @@ import Button from '../Button/Button';
 
 const Nav = ( props ) => {
     const [ board, setBoard ] = useState('home')
-
-
+    
     const logOut = () => {
         localStorage.clear()
     }
-    
-
-    useEffect(() => {
-      }, [board])
 
     return (
         <nav className='nav'>
