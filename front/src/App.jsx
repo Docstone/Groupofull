@@ -11,7 +11,7 @@ import { BrowserRouter as Router,
   } from "react-router-dom";
 
 function App() {
- 
+    console.log(React.version)
     return(
         <Router>
             <Routes>

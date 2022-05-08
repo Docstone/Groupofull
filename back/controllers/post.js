@@ -78,14 +78,12 @@ exports.deletePost = async (req, res) => {
     const userId = req.get('auth')
     try {
       const post = await Post.findOne({ where: { uuid }, include: 'comments' })
-    
-     
+      const comments = await Comment.findAll({ where: { postId: uuid } })
       if (!post) {
 
         return res.status(404).json({error: "Post introuvable"})
 
       } if ( post.type === 'text' ){
-
         await post.destroy()
         return res.json({ message: 'Post Supprimmé!' })
 
@@ -93,7 +91,9 @@ exports.deletePost = async (req, res) => {
 
         const filename = post.mediaUrl.split('/images/')[1];
         fs.unlink(`images/${filename}`, () => {
+
           post.destroy()
+         
         return res.json({ message: 'Post Supprimmé!' })
         })
 

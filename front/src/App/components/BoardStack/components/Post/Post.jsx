@@ -20,7 +20,7 @@ const Post = (props) => {
                 <div className='board__postInfo'>
                     <div className='board__postInfo'>
                        { props.post.user ?
-                       <p  className='board__postInfo__detail'> <span className='board__postInfo--hide'>Posté par &nbsp;</span><strong> {CapitalizeFirst(props.post.user.firstName)} {CapitalizeFirst(props.post.user.lastName)}</strong></p>
+                       <p  className='board__postInfo__detail'> <span className='board__postInfo--hide'>Posté par </span><strong> {CapitalizeFirst(props.post.user.firstName)} {CapitalizeFirst(props.post.user.lastName)}</strong></p>
                        : <p>Utilisateur Supprimé</p>}
                     </div>
                     <div className='board__postInfo'>

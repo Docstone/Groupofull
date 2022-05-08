@@ -2,7 +2,7 @@ import NavLogo from "../../../../../App/images/icon-left-font-monochrome-white.p
 import React , { useState, useEffect }from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../Button/Button';
-import DeleteAccount from "../../../UsersStack/components/DleteAccount/DeleteAccount";
+import DeleteAccount from "../../../UsersStack/components/DeleteAccount/DeleteAccount";
 
 const Nav = ( props ) => {
     const [ board, setBoard ] = useState('home')
