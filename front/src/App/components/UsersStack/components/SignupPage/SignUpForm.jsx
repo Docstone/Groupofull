@@ -42,13 +42,11 @@ export default function Signupform() {
                     password: formData.password
                 }).then(res => {
                     if(res.status === 201){
-                        console.log(res)
                     setSignupMsg({ msg: "Nouvel utilisateur Créé"})
                     autoLogin()
                 } 
             }).catch((err) => {
                 setSignupMsg({ errMsg: "Adresse Email déja utilisée"})
-                console.log(err)
             })          
     }
 

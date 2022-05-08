@@ -14,5 +14,3 @@ export function TimeFormat( props ) {
 
     return time.join(':')
 }
-
-

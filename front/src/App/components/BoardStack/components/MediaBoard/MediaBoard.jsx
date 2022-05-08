@@ -13,7 +13,10 @@ function MediaBoard(props) {
                 "Authorization": `Bearer ${auth}`
             }
         }).then(res => {
-            setPosts(res.data)
+            const sortedData = res.data.sort(function(a,b){
+                return new Date(b.createdAt) - new Date(a.createdAt)
+              })
+            setPosts(sortedData)
         })
     }
 

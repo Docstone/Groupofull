@@ -33,7 +33,7 @@ const Commentpost = (props) => {
             }
         }).then(res => {
             const newComment = {...res.data.comment}
-            props.setComments(oldComments => [...oldComments, newComment])
+            props.getComments(oldComments => [...oldComments, newComment])
         })
     }
     

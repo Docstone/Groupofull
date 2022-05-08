@@ -22,7 +22,9 @@ const Adminbutton = (props) => {
                 Authorization: `Bearer ${auth}`,
                 auth: userUuid
             }
-        }).then()
+        }).then(() => {
+            props.getComments(oldComments => [...oldComments])
+        })
     }    
 
     return (

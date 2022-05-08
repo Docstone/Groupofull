@@ -8,8 +8,10 @@ import AdminButton from '../../../Base/components/Button/AdminButton/AdminButton
 const Post = (props) => {
     const [ showComments, setShowComments ] = useState(false)
     const rank = localStorage.getItem('rank')
+   
     
     return (
+
         <div>
             <div className='board__type__container'>
                 <span className='board__type'>{props.post.type.toUpperCase()}</span>
@@ -17,7 +19,9 @@ const Post = (props) => {
             <div className='board__post'>
                 <div className='board__postInfo'>
                     <div className='board__postInfo'>
-                        <p  className='board__postInfo__detail'> <span className='board__postInfo--hide'>Posté par &nbsp;</span><strong> {CapitalizeFirst(props.post.user.firstName)} {CapitalizeFirst(props.post.user.lastName)}</strong></p>
+                       { props.post.user ?
+                       <p  className='board__postInfo__detail'> <span className='board__postInfo--hide'>Posté par &nbsp;</span><strong> {CapitalizeFirst(props.post.user.firstName)} {CapitalizeFirst(props.post.user.lastName)}</strong></p>
+                       : <p>Utilisateur Supprimé</p>}
                     </div>
                     <div className='board__postInfo'>
                         <p  className='board__postInfo__detail'>{DateFormat(props.post.createdAt)} a {TimeFormat(props.post.createdAt)}</p>

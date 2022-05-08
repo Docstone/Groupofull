@@ -26,11 +26,11 @@ const CommentBoard = ( props ) => {
    
     return (
         <div>
-            <CommentPost  postUuid={props.postUuid} setComments={getComments} />
+            <CommentPost  postUuid={props.postUuid} getComments={getComments} />
             {comments.length > 0 && (
             <ul className='commentList'>
                     {comments.map(comment => (
-                    <Comment key={comment.uuid}  comment={comment} setComments={getComments} />
+                    <Comment key={comment.uuid}  comment={comment} getComments={getComments} />
                     ))}
             </ul>
             )}

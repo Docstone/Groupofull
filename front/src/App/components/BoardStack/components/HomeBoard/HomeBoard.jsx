@@ -13,7 +13,10 @@ function HomeBoard(props) {
                 "Authorization": `Bearer ${auth}`
             }
         }).then(res => {
-            setPosts(res.data)
+            const sortedData = res.data.sort(function(a,b){
+                return new Date(b.createdAt) - new Date(a.createdAt)
+              })
+            setPosts(sortedData)
         })
     }
 
@@ -30,7 +33,6 @@ function HomeBoard(props) {
     )
 
     return (
-
         <div className='board'>
             <h1 className='board__boardTitle'>Toutes les Publications</h1>
                 {postList}
