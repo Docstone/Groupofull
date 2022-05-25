@@ -6,6 +6,7 @@
 Node v16.14.2
 
 importez le ficher '/back/groupo_db.sql'
+modifiez vos identifiant dans '/back/.env'
 
 executez la commande "npm install" depuis le dossier /back pour installer les dépendences suivantes
 ├── bcrypt@5.0.1
